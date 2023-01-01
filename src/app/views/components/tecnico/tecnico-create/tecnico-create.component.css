@@ -1,0 +1,29 @@
+.form{
+    width: 40%;
+    margin: auto;
+    padding: 4rem 2rem;
+}
+
+.full-width{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form h1{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+}
+
+.opcoes{
+    width:42%;
+    margin-top: 3rem;
+    margin-left: auto;
+    
+    
+}
+
+.opcoes button{
+   margin-left: 10px;
+}

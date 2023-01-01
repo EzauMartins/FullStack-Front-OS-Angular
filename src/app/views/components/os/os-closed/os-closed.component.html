@@ -1,0 +1,68 @@
+
+  <div class="create">
+    <H1>Ordens de Serviço Finalizadas</H1>
+    <button (click)="navigateToCreate()" mat-raised-button class="mat-elevation-z8" color='accent'>Nova OS</button>
+  </div>
+
+
+<div class="mat-elevation-z8 container">
+
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->s
+      <ng-container matColumnDef="cliente">
+        <th mat-header-cell *matHeaderCellDef> Cliente </th>
+        <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+     </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="tecnico">
+        <th mat-header-cell *matHeaderCellDef> Tecnico </th>
+        <td mat-cell *matCellDef="let element"> {{element.tecnico}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="dttAbertura">
+        <th mat-header-cell *matHeaderCellDef> Data Abertura </th>
+        <td mat-cell *matCellDef="let element"> {{element.dtAbertura}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="dttFechamento">
+        <th mat-header-cell *matHeaderCellDef> Data Fechamento </th>
+        <td mat-cell *matCellDef="let element"> {{element.dtFechamento}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="prioridade">
+        <th mat-header-cell *matHeaderCellDef> Prioridade</th>
+        <td mat-cell *matCellDef="let element" class={{prioridade(element.prioridade)}}> {{element.prioridade}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
+        <td mat-cell *matCellDef="let element"> 
+          <a routerLink="update/{{element.id}}">
+            <i id="edit" class="material-icons">edit</i>
+          </a>
+          <a routerLink="../view/{{element.id}}">
+            <i id="view" class="material-icons">visibility</i>
+          </a>
+        </td>
+      </ng-container>
+
+      
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10]"
+                   showFirstLastButtons 
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

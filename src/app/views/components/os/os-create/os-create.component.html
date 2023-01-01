@@ -1,0 +1,52 @@
+<div class="container">
+
+    
+    <h1>Criando ordem de serviço</h1>
+
+    <div class="labels">
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione um técnico</mat-label>
+            <mat-select [(value)]="os.tecnico">            
+              <mat-option *ngFor="let tec of tecnicos" value="{{tec.id}}">{{tec.nome}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione um cliente</mat-label>
+            <mat-select [(value)]="os.cliente">            
+              <mat-option *ngFor="let cli of clientes" value="{{cli.id}}">{{cli.nome}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione o Status</mat-label>
+            <mat-select [(value)]="os.status">            
+                <mat-option value="0">Aberto</mat-option>
+                <mat-option value="1">Em Andamento</mat-option>
+                <mat-option value="2">Fechado</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione a prioridade</mat-label>
+            <mat-select [(value)]="os.prioridade">            
+                <mat-option value="0">Baixa </mat-option>
+                <mat-option value="1">Media </mat-option>
+                <mat-option value="2">Alta </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+    </div>
+
+    <form class="form">
+      
+        <mat-form-field class="full-width">
+          <mat-label>adicione os detalhes da OS</mat-label>
+          <textarea [(ngModel)]="os.observacoes" name="observacoes" matInput maxlength="255"></textarea>
+        </mat-form-field>
+      </form>
+
+      <button (click)="create()" class="mat-elevation-z8" mat-raised-button color="accent">Criar</button>
+      <button (click)="cancel()" class="mat-elevation-z8" mat-raised-button color="warn">Cancelar</button>
+</div>
